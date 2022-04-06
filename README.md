@@ -41,7 +41,7 @@ POST http://localhost:8080/login
     "password":"123456"
 }
 ```
-Inspect the clients cookies to see the value of the `session` cookie, and see the output:
+Inspect the clients cookies to see the value of the session cookie, and see the output:
 ###### Response
 ```JSON
 {
@@ -49,7 +49,7 @@ Inspect the clients cookies to see the value of the `session` cookie, and see th
 }
 ```
 
-You can now try hitting the home route from the same client to get the welcome message:
+You can now try hitting the home route from the same client to get the welcome message.
 ###### Request
 ```
 GET http://localhost:8080/home
@@ -61,7 +61,7 @@ GET http://localhost:8080/home
 }
 ```
 
-Hit the refresh route, and then inspect the cookie of your client and see the new value of the `session`:
+Hit the refresh route, and then inspect the cookie of your client and see the new value of the session cookie.
 
 ###### Request
 ```
@@ -74,7 +74,7 @@ GET http://localhost:8080/refresh
 }
 ```
 
-Finally, call the logout route to clear session data:
+Finally, call the logout route to clear session data.
 
 ```
 GET http://localhost:8080/logout
@@ -93,20 +93,13 @@ MIT License
 
 Copyright (c) 2022 Gustavo Rodrigues
 
-
-Please feel free to create a new issue if you come across one or want a new feature to be added. I am looking for contributors, feel free to send pull requests.
-
-
-
-
-
-##TODO List##
-- [X] Role-based authorization including group permissions
-- [X] Improve the API to include a consistent error payload
+## List of improvements to be made
+- [ ] Role-based authorization including group permissions
+- [ ] Improve the API to include a consistent error payload
 - [ ] Activity Logs
-- [ ] Encrypted passworda
-- [ ] Improve documentation
+- [ ] Encrypted password
+- [ ] Improved documentation
 - [ ] Add TLS support for the end point's
 - [ ] Add support for databases
 
-
+Please feel free to create a new issue if you come across one or want a new feature to be added. I am looking for contributors, feel free to send pull requests.
