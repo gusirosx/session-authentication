@@ -17,6 +17,7 @@ To run this application, build and run the Go binary:
 go run .
 ```
 
+Check if the application is running
 ###### Request
 ```
 GET http://localhost:8080/
@@ -51,7 +52,7 @@ Inspect the clients cookies to see the value of the `session` cookie, and see th
 You can now try hitting the home route from the same client to get the welcome message:
 ###### Request
 ```
-GET http://localhost:8000/home
+GET http://localhost:8080/home
 ```
 ###### Response
 ```JSON
@@ -60,17 +61,17 @@ GET http://localhost:8000/home
 }
 ```
 
-Hit the refresh route, and then inspect the clients cookies to see the new value of the `session`:
+Hit the refresh route, and then inspect the cookie of your client and see the new value of the `session`:
 
+###### Request
 ```
 GET http://localhost:8080/refresh
 ```
-
+###### Response
 ```JSON
 {
     "success": "Cookie Refreshed"
 }
-
 ```
 
 Finally, call the logout route to clear session data:
