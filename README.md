@@ -17,14 +17,14 @@ To run this application, build and run the Go binary:
 go run .
 ```
 Now, using any HTTP client with support for cookies make a login request with the appropriate credentials:
-### Request
+###### Request
 
 ```
 GET http://localhost:8080/
 ```
 
 
-### Response
+###### Response
 ```JSON
 {
     "success": "Up and running..."
