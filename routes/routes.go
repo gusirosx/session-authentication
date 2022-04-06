@@ -15,7 +15,7 @@ const (
 
 func RoutesSetup() {
 	// Set Gin to production mode
-	gin.SetMode(gin.ReleaseMode)
+	// gin.SetMode(gin.ReleaseMode)
 	// Set up a http server
 	router := gin.Default()
 

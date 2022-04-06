@@ -1,6 +1,8 @@
 # Session Authentication
 Session Authentication API that manages authentication, cookies and JWT Token's
 
+![walkthrough](https://user-images.githubusercontent.com/61150315/161883403-e5382edc-1078-4492-8997-e00b5f62f0ad.gif)
+
 ## Features
 - Registered users can authenticate with their email and password.
 - Once a user successfully authenticates, a JWT token is created with a session cookie.
