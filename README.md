@@ -9,11 +9,7 @@ Session Authentication API that manages authentication, cookies and JWT Token's
 - Sessions and cookies are automatically renewed when the user makes a request to any secured routes. This will reset the max life of the session and cookie.
 - Session entries along with the session cookie is destroyed upon logging out.
 
-####Request####
-
-####Response####
-
-## Running our application
+## How to run this application
 
 To run this application, build and run the Go binary:
 
@@ -21,7 +17,14 @@ To run this application, build and run the Go binary:
 go run .
 ```
 Now, using any HTTP client with support for cookies make a login request with the appropriate credentials:
+### Request
 
+```
+GET http://localhost:8080/
+```
+
+
+### Response
 ```JSON
 {
     "success": "Up and running..."
