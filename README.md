@@ -16,14 +16,11 @@ To run this application, build and run the Go binary:
 ```sh
 go run .
 ```
-Now, using any HTTP client with support for cookies make a login request with the appropriate credentials:
-###### Request
 
+###### Request
 ```
 GET http://localhost:8080/
 ```
-
-
 ###### Response
 ```JSON
 {
@@ -31,11 +28,12 @@ GET http://localhost:8080/
 }
 ```
 
+Now, using any HTTP client with support for cookies make a login request with the appropriate credentials:
 
 ```
 POST http://localhost:8080/login
 ```
-
+###### Request
 ```JSON
 {
     "email":"gusirosx@email.com",
@@ -43,17 +41,19 @@ POST http://localhost:8080/login
 }
 ```
 Inspect the clients cookies to see the value of the `session` cookie, and see the output:
-
+###### Response
 ```JSON
 {
     "success": "Helo Gustavo"
 }
 ```
 
-You can now try hitting the welcome route from the same client to get the welcome message:
+You can now try hitting the home route from the same client to get the welcome message:
+###### Request
 ```
 GET http://localhost:8000/home
 ```
+###### Response
 ```JSON
 {
     "response": "Hello gusirox"
@@ -63,7 +63,7 @@ GET http://localhost:8000/home
 Hit the refresh route, and then inspect the clients cookies to see the new value of the `session`:
 
 ```
-POST http://localhost:8080/refresh
+GET http://localhost:8080/refresh
 ```
 
 ```JSON
