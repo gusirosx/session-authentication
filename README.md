@@ -6,7 +6,6 @@ Session Authentication API that manages authentication, cookies and JWT Token's
 - Once a user successfully authenticates, a JWT token is created with a session cookie.
 - When a user makes a request for a secured route e.g. /home, the session cookie is received by the server and verified. If the cookie value is valid, the user is granted access to the secured route.
 - Sessions and cookies have a maximum life before they expire, once expired, the user will need to login again.
-- Sessions and cookies are automatically renewed when the user makes a request to any secured routes. This will reset the max life of the session and cookie.
 - Session entries along with the session cookie is destroyed upon logging out.
 
 ## How to run this application
@@ -101,5 +100,6 @@ Copyright (c) 2022 Gustavo Rodrigues
 - [ ] Improved documentation
 - [ ] Add TLS support for the end point's
 - [ ] Add support for databases
+- [ ] Sessions and cookies are automatically renewed when the user makes a request to any secured routes
 
-Please feel free to create a new issue if you come across one or want a new feature to be added. I am looking for contributors, feel free to send pull requests.
+Please feel free to create a new issue if you come across one or want a new feature to be added. 
