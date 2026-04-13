@@ -1,6 +1,6 @@
 package entity
 
-import "github.com/golang-jwt/jwt"
+import "github.com/golang-jwt/jwt/v5"
 
 // User Credentials
 type Credentials struct {
@@ -16,5 +16,5 @@ type SignedDetails struct {
 	LastName  string `json:"lastName"`
 	Email     string `json:"email"`
 	Phone     string `json:"phone"`
-	jwt.StandardClaims
+	jwt.RegisteredClaims
 }

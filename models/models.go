@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/golang-jwt/jwt"
+	jwt "github.com/golang-jwt/jwt/v5"
 )
 
 var SecretKey []byte = []byte(os.Getenv("JWT_SECRET_KEY"))
@@ -24,7 +24,6 @@ func Login(cred entity.Credentials) (*entity.User, error) {
 	if err := VerifyEmail(user.Email, cred.Email); err != nil {
 		return &entity.User{}, err
 	}
-
 	// Expiration time of the token (kept it as 5 minutes)
 	expirationTime := time.Now().Add(time.Minute * 5)
 	// Create the JWT claims, which includes the username and expiry time
@@ -35,9 +34,9 @@ func Login(cred entity.Credentials) (*entity.User, error) {
 		LastName:  user.LastName,
 		Email:     user.Email,
 		Phone:     user.Phone,
-		StandardClaims: jwt.StandardClaims{
+		RegisteredClaims: jwt.RegisteredClaims{
 			// In JWT, the expiry time is expressed as unix milliseconds
-			ExpiresAt: expirationTime.Unix(),
+			ExpiresAt: jwt.NewNumericDate(expirationTime),
 		},
 	}
 	// Declare the token with the algorithm used for signing, and the claims
@@ -63,9 +62,9 @@ func GetToken(user *entity.User) (string, error) {
 		LastName:  user.LastName,
 		Email:     user.Email,
 		Phone:     user.Phone,
-		StandardClaims: jwt.StandardClaims{
+		RegisteredClaims: jwt.RegisteredClaims{
 			// In JWT, the expiry time is expressed as unix milliseconds
-			ExpiresAt: expirationTime.Unix(),
+			ExpiresAt: jwt.NewNumericDate(expirationTime),
 		},
 	}
 	// Declare the token with the algorithm used for signing, and the claims
@@ -123,7 +122,7 @@ func ValidateToken(signedToken string) error {
 		return fmt.Errorf("token is invalid")
 	}
 
-	if claims.ExpiresAt < time.Now().Local().Unix() {
+	if claims.ExpiresAt == nil || claims.ExpiresAt.Before(time.Now()) {
 		return fmt.Errorf("token is expired")
 	}
 	return nil
